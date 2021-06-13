@@ -1,9 +1,12 @@
 package com.ipldashboardApplication.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Team {
@@ -15,6 +18,18 @@ public class Team {
 	private long totalWon;
 	private String teamName;
 	
+	//THIS IS OUR VARIABLE SO JPA DOESN'T NEED TO WORRY ABOUT IT. 
+	@Transient
+	private List<MatchData> latestMatches;
+	
+	public List<MatchData> getLatestMatches() {
+		return latestMatches;
+	}
+
+	public void setLatestMatches(List<MatchData> list) {
+		this.latestMatches = list;
+	}
+
 	public Team() {}
 	
 	public Team(String name, long totalMatches) {
@@ -54,8 +69,10 @@ public class Team {
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", totalMatch=" + totalMatch + ", totalWon=" + totalWon + ", teamName=" + teamName
-				+ "]";
+				+ ", latestMatches=" + latestMatches + "]";
 	}
+
+	
 	
 		
 }

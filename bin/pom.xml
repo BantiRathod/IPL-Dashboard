@@ -11,7 +11,7 @@
 	<groupId>com.ipldashboardApplication</groupId>
 	<artifactId>IPLDashboard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>IPLDashboard</name>
 	<description>IPL DASHBOARD APPLIATION EXAMPLE</description>
 	<properties>

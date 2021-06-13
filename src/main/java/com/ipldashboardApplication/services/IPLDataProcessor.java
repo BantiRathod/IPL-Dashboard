@@ -1,12 +1,10 @@
 package com.ipldashboardApplication.services;
 
-import java.text.SimpleDateFormat;
-
+import java.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Service;
-
 import com.ipldashboardApplication.models.FetchMatchData;
 import com.ipldashboardApplication.models.MatchData;
 
@@ -24,7 +22,7 @@ public class IPLDataProcessor implements ItemProcessor <FetchMatchData , MatchDa
 		MatchData matchData = new MatchData();
 		matchData.setId(Long.parseLong(fetchMatchData.getId()));
 		matchData.setCity(fetchMatchData.getCity());
-		matchData.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(fetchMatchData.getDate()));
+		matchData.setDate(LocalDate.parse(fetchMatchData.getDate()));
 		matchData.setPlayerOfMatch(fetchMatchData.getPlayerOfMatch());
 		matchData.setResult(fetchMatchData.getResult());
 		matchData.setResultMargin(fetchMatchData.getResultMargin());
